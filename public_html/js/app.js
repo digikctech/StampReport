@@ -34,17 +34,17 @@ Ext.define('SenchaCon.view.Menu', {
             }, {
                 text: 'Dashboard',
                 ui: 'mainmenu',
-                href: '#sessions',
+                href: '#dashboard',
                 iconCls: 'ico-schedule'
             }, {
                 text: 'Site Analysis',
                 ui: 'mainmenu',
-                href: '#speakers',
+                href: '#siteAnalysis',
                 iconCls: 'ico-speakers'
             }, {
                 text: 'Workgroup Analysis',
                 ui: 'mainmenu',
-                href: '#sponsors',
+                href: '#wgAnalysis',
                 iconCls: 'ico-sponsors'
             }, {
                 xtype: 'component',
@@ -119,12 +119,14 @@ Ext.define('SenchaCon.view.Menu', {
 });
 
 Ext.application({
-    models: ["Company", "Employee", "Site", "SiteDivision", "User"],
-    views: ["Dashboard"],
+    models: ["Company", "Employee", "Site", "SiteDivision", "User","Summary","LocationHrs"],
+    controllers: ["DashboardController","LocAnalysisController"],
+    views: ["Common","Dashboard","LocationAnalysis"],
+    store: ["SummaryStore"],
     name: "Stamp",
     appFolder: 'js',
     launch: function() {
-        this.checkAssets()
+        this.checkAssets();
     },
     checkAssets: function() {
         var a = this;
@@ -141,12 +143,14 @@ Ext.application({
         //Ext.Viewport.innerElement.addCls('viewport-inner');
 
         // add initial views
+        debugger;
         viewport.add([
             {
                 xtype: 'mainmenu'
             },
             {
                 xtype: 'dashboardmain'
+                //xtype: 'locanalysismain'
             }]);
 
     }});

@@ -6,7 +6,7 @@
 
 Ext.define('Stamp.view.Dashboard.Piechart', {
     extend: 'Ext.chart.PolarChart',
-    alias: 'widget.dashboardpiechart',
+    xtype: 'dashboardpiechart',
     requires: [
         'Ext.chart.series.Pie',
         'Ext.chart.interactions.Rotate'
@@ -26,8 +26,9 @@ Ext.define('Stamp.view.Dashboard.Piechart', {
         series: [
             {
                 type: 'pie',
-                labelField: 'x',
-                xField: 'y2'
+                labelField: 'Location',
+                xField: 'Hours',
+                donut: 20
             }
         ],
         interactions: [
@@ -40,18 +41,20 @@ Ext.define('Stamp.view.Dashboard.Piechart', {
 
 Ext.define('Stamp.view.Dashboard.Summary', {
     extend: 'Ext.Container',
-    alias: 'widget.dashboardsummary',
+    xtype: 'dashboardsummary',
     requires: [
         'Ext.dataview.List',
         'Ext.XTemplate'
     ],
     config: {
+        layout: 'fit',
         items: [
             {
                 xtype: 'list',
-                id: 'DashboardList',
+                store: "summarystore",
+                id: 'dashboardlist',
                 itemTpl: [
-                    '<div>{summarykey}:{summaryvalue}</div>'
+                    '{summarykey}:{summaryvalue}'
                 ]
             }
         ]
@@ -60,7 +63,7 @@ Ext.define('Stamp.view.Dashboard.Summary', {
 
 Ext.define('Stamp.view.Dashboard.Linechart', {
     extend: 'Ext.chart.CartesianChart',
-    alias: 'widget.dashboardlinechart',
+    xtype: 'dashboardlinechart',
     requires: [
         'Ext.chart.axis.Category',
         'Ext.chart.axis.Numeric',
@@ -116,7 +119,7 @@ Ext.define('Stamp.view.Dashboard.Main', {
         'Stamp.view.Dashboard.Piechart',
         'Stamp.view.Dashboard.Summary',
         'Ext.chart.CartesianChart',
-        'Ext.chart.PolarChart',
+        'Ext.chart.PolarChart'
     ],
     config: {
         fullscreen: true,
