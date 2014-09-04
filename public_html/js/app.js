@@ -7,7 +7,6 @@
  Created on : Aug 30, 2014, 11:00:16 PM
  Author     : Dhanasekar Karuppanan
  */
-
 Ext.define('SenchaCon.view.Menu', {
     extend: 'Ext.Container',
     xtype: 'mainmenu',
@@ -44,7 +43,7 @@ Ext.define('SenchaCon.view.Menu', {
             }, {
                 text: 'Workgroup Analysis',
                 ui: 'mainmenu',
-                href: '#wgAnalysis',
+                href: '#wrgpAnalysis',
                 iconCls: 'ico-sponsors'
             }, {
                 xtype: 'component',
@@ -119,9 +118,9 @@ Ext.define('SenchaCon.view.Menu', {
 });
 
 Ext.application({
-    models: ["Company", "Employee", "Site", "SiteDivision", "User","Summary","LocationHrs"],
-    controllers: ["DashboardController","LocAnalysisController"],
-    views: ["Common","Dashboard","LocationAnalysis"],
+    models: ["Company", "Employee", "Site", "SiteDivision", "User","Summary","LocationHrs","WorkGrpHrs"],
+    views: ["Dashboard","SearchBar","LocAnalysis","WrGpAnalysis"],
+    controllers: ["BaseController","MainController","DashboardController","LocAnalysisController","WrGpAnalysisController"],    
     store: ["SummaryStore"],
     name: "Stamp",
     appFolder: 'js',
@@ -143,7 +142,6 @@ Ext.application({
         //Ext.Viewport.innerElement.addCls('viewport-inner');
 
         // add initial views
-        debugger;
         viewport.add([
             {
                 xtype: 'mainmenu'

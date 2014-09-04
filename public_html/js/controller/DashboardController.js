@@ -4,18 +4,15 @@
  * and open the template in the editor.
  */
 Ext.define("Stamp.controller.DashboardController", {
-    extend: Ext.app.Controller,
-    requires: [
-        'Stamp.model.Summary',
-        'Stamp.model.LocationHrs'
-    ],
+    extend: "Stamp.controller.BaseController",
     config: {
+        routes: {
+            dashboard:"routeDashboard"            
+        },
         refs: {
             summaryList: '#dashboardlist',
             dashboardlinechart: 'dashboardlinechart',
             dashboardpiechart: 'dashboardpiechart'
-        },
-        routes: {
         },
         control: {
             "#dashboardlist": {
@@ -60,6 +57,11 @@ Ext.define("Stamp.controller.DashboardController", {
             });
             a.setStore(store);
         }
+    }, 
+    routeDashboard: function() {
+      this.render("dashboardmain");  
+    },
+    launch: function() {
     }
     //if (!b.isLoaded() && !b.isLoading())
 });
