@@ -52,7 +52,7 @@ Ext.define('SenchaCon.view.Menu', {
             }, {
                 text: 'Current Status',
                 ui: 'mainmenu',
-                href: '#feed',
+                href: '#currentStatus',
                 iconCls: 'ico-feed'
             }, {
                 text: 'Site Report',
@@ -62,7 +62,7 @@ Ext.define('SenchaCon.view.Menu', {
             }, {
                 text: 'Employee Report',
                 ui: 'mainmenu',
-                href: '#whoshere',
+                href: '#employeeReport',
                 iconCls: 'ico-location'
             }]
     },
@@ -118,9 +118,9 @@ Ext.define('SenchaCon.view.Menu', {
 });
 
 Ext.application({
-    models: ["Company", "Employee", "Site", "SiteDivision", "User","Summary","LocationHrs","WorkGrpHrs"],
-    views: ["Dashboard","SearchBar","LocAnalysis","WrGpAnalysis"],
-    controllers: ["BaseController","MainController","DashboardController","LocAnalysisController","WrGpAnalysisController"],    
+    models: ["Company", "Employee", "Site", "SiteDivision", "User","Summary","LocationHrs","WorkGrpHrs","EmployeeHrs"],
+    views: ["Dashboard","SearchBar","LocAnalysis","WrGpAnalysis","CurrentStatus","EmployeeReport"],
+    controllers: ["BaseController","MainController","DashboardController","LocAnalysisController","WrGpAnalysisController","CurrStatusController","EmpReportController"],    
     store: ["SummaryStore"],
     name: "Stamp",
     appFolder: 'js',

@@ -50,7 +50,7 @@ Ext.define('Stamp.view.SearchBar', {
             },
             {
                 xtype: 'button',
-                text: 'Search'
+                text: 'Go'
             }
         ]
     }

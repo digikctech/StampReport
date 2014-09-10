@@ -15,7 +15,7 @@ Ext.define('Stamp.model.WorkGrpHrs', {
     ],
 
     config: {
-        fields: [
+        fields: [            
             {
                 name: 'WorkGroup'
             },
