@@ -30,11 +30,17 @@ Ext.define('Stamp.model.EmployeeHrs', {
                 name: 'WorkGroup',
             },                        
             {
-                name: 'CheckIn'
+                name: 'CheckInDate'
             },                        
             {
-                name: 'CheckOut'
+                name: 'CheckOutDate'
             },                                    
+            {
+                name: 'CheckInTime'
+            },                        
+            {
+                name: 'CheckOutTime'
+            },                                                
             {
                 name: 'NormalHours',
                 type: 'int'
